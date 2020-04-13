@@ -14,6 +14,13 @@ const port = process.env.PORT || 3000;
     });
   });
 
+  app.get('/status', (req, res) => {
+    res.render('status', {
+      message: 'All systems reporting at 100%',
+      success: true,
+    });
+  });
+
   app.listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`);
   });

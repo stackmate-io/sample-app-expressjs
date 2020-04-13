@@ -24,6 +24,9 @@ production:
   # domain to use
   domain: nodejs.ezploy.eu
 
+  environment:
+    PORT: 4000
+
   # services to use
   services:
     - name: nodejsapp-production
