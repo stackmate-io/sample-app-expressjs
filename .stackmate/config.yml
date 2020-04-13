@@ -23,9 +23,20 @@ production:
   branch: master
   # domain to use
   domain: nodejs.ezploy.eu
+  # The document root for the app
+  documentroot: /var/www/nodejsapp
 
   environment:
     PORT: 4000
+
+  pipeline:
+    build:
+      - npm install
+    after:
+      restart:
+        - pm2
+      reload:
+        - nginx
 
   # services to use
   services:
@@ -36,4 +47,5 @@ production:
         - type: nginx
         - type: nodejs
         - type: pm2
+          configfile: server.js
       storage: 20
